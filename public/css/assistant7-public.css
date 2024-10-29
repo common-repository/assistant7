@@ -1,0 +1,130 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+:root {
+    --star-size: 28px;
+    --star-color: #ccc;
+    --star-background: #fc0;
+}
+.assistant7-goToReviews { width:100%; }
+.assistant7-rating {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times, serif;
+    line-height: 1;
+    width:100%;
+    text-align:center;
+}
+.assistant7-rating::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.assistant7-review { margin-top: 0.25em; border-bottom: 1px solid #f3f3f3; padding-bottom: 10px; }
+.assistant7-comment { font-size: 14px; }
+.assistant7-meta { }
+.assistant7-name { font-size: 15px; font-weight: bold; }
+.assistant7-ago { font-size: 12px; color: rgba(0,0,0,.35); }
+#assistant7-add-review { box-sizing: border-box; margin-top: 4rem; border: 1px solid rgba(0,0,0,0.05); padding: 3%; background: rgba(255,255,255,0.5); }
+#no-reviews { font-style: italic; }
+.a7-wrapper {
+    display: flex;
+    box-sizing: border-box;
+    column-gap: 20px;
+}
+.a7-col {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#assistant7-add-review input[type=text], #assistant7-add-review input[type=email], #assistant7-add-review #comments {
+    width:100%;
+    padding:10px;
+    font-size:14px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+#assistant7-add-review #assistant7-rating-input { margin:2% 0; }
+
+/* Review ratings display */
+.assistant7-stars { margin-top:-7px; }
+.assistant7-rating-display span { color: transparent; width: 20px; }
+.assistant7-rating-display span:before { content: "\2605"; color: gold; }
+
+/* Rating styles */
+.a7-hide {
+    display:none;
+}
+.assistant7-rateme {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.assistant7-rateme > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    color: #000;
+    font-size: 1.55em;
+}
+.assistant7-rateme > label:hover,
+.assistant7-rateme > label:hover ~ label,
+.assistant7-rateme > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+.assistant7-rateme > label:hover:before,
+.assistant7-rateme > label:hover ~ label:before,
+.assistant7-rateme > input.radio-btn:checked ~ label:before,
+.assistant7-rateme > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+.a7-modal {
+    display: none;
+    background-color: #e8e8e8;
+}
+.a7-modal.success {
+    background-color: rgba(143, 188, 143, 0.5);
+}
+.a7-modal.error {
+    background-color: rgba(240, 128, 128, 0.5);
+}
+.a7-modal-content {
+    position: relative;
+    padding: 1px 20px;
+    margin: auto;
+    width: 100%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.a7-close-btn {
+    float: right;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    cursor:pointer;
+}
+.a7-close-btn:hover {
+    color: darkgray;
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}

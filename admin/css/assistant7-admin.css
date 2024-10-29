@@ -1,0 +1,13 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.wrap.assistant7 {
+    padding-top:20px;
+}
+
+.assistant7-logo {
+    width:100%;
+    max-width:225px;
+
+}
